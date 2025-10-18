@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Smart Lighting - Control</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg px-lg-5">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="IOT_LOGO.png"
+            alt="IoT Smart Lighting"
+            class="navbar-logo"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="control.html">Light Control</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="team.html">Team Info</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Light Control Section -->
+    <div class="container">
+        <div class="control-card">
+            <h2 class="section-title">Smart Lamp Control</h2>
+            
+            <!-- Connection Status -->
+            <div class="alert alert-info text-center" id="connectionStatus">
+                <span id="statusIcon">⏳</span>
+                <span id="statusText">Connecting to server...</span>
+            </div>
+            
+            <!-- Lamp Icon -->
+            <div class="lamp-container">
+                <div class="lamp-icon" id="lampIcon">💡</div>
+            </div>
+            
+            <!-- Range Slider -->
+            <div class="range-container">
+                <label class="form-label fw-bold">Brightness Level</label>
+                <input type="range" class="range-input" min="0" max="255" value="0" id="rangeInput" />
+            </div>
+            
+            <!-- Value Display -->
+            <div class="value-display">
+                <span id="valueDisplay">0</span>
+                <small class="d-block fs-6 text-muted">/ 255</small>
+            </div>
+            
+            <!-- Control Buttons -->
+            <div class="row text-center mt-4">
+                <div class="col-6">
+                    <button class="btn btn-outline-danger w-100" onclick="setLight(0)">
+                        ❌ Turn Off
+                    </button>
+                </div>
+                <div class="col-6">
+                    <button class="btn btn-outline-success w-100" onclick="setLight(255)">
+                        ✨ Full Brightness
+                    </button>
+                </div>
+            </div>
+
+            <!-- Preset Buttons -->
+            <div class="row text-center mt-3">
+                <div class="col-4">
+                    <button class="btn btn-outline-secondary w-100" onclick="setLight(64)">
+                        🌙 Low (25%)
+                    </button>
+                </div>
+                <div class="col-4">
+                    <button class="btn btn-outline-secondary w-100" onclick="setLight(128)">
+                        🌤️ Medium (50%)
+                    </button>
+                </div>
+                <div class="col-4">
+                    <button class="btn btn-outline-secondary w-100" onclick="setLight(192)">
+                        ☀️ High (75%)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/control.js"></script>
+</body>
+</html>
